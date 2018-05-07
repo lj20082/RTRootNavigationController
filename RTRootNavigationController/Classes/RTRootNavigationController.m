@@ -664,6 +664,7 @@ __attribute((overloadable)) static inline UIViewController *RTSafeWrapViewContro
                   animated:(BOOL)animated
 {
     if (self.viewControllers.count > 0) {
+        viewController.hidesBottomBarWhenPushed = YES; //viewController是将要被push的控制器
         UIViewController *currentLast = RTSafeUnwrapViewController(self.viewControllers.lastObject);
         [super pushViewController:RTSafeWrapViewController(viewController,
                                                            viewController.rt_navigationBarClass,
